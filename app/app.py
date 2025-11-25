@@ -6,6 +6,7 @@ from app.components.sidebar import sidebar
 from app.components.navbar import navbar
 from app.components.filters import filters_section
 from app.components.command_palette import command_palette
+from app.pages.nft_landing import nft_landing
 
 
 def skeleton_loader() -> rx.Component:
@@ -99,4 +100,14 @@ app = rx.App(
         ),
     ],
 )
-app.add_page(index, route="/")
+from app.pages.nft_detail import nft_detail_page
+from app.pages.profile import profile_page
+from app.pages.create_nft import create_nft_page
+from app.pages.settings import settings_page
+
+app.add_page(nft_landing, route="/")
+app.add_page(index, route="/journal")
+app.add_page(nft_detail_page, route="/nft/[id]")
+app.add_page(profile_page, route="/profile")
+app.add_page(create_nft_page, route="/create")
+app.add_page(settings_page, route="/settings")
